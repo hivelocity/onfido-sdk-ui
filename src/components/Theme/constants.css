@@ -56,7 +56,7 @@
 
 /* Solid colors */
 @color-white: #ffffff;
-@color-primary-500: #353FF4;
+@color-primary-500: #e31f3d;
 @color-icon-temporary: #EDEEEF;
 @color-neutral-600: #A2A8B3;
 @color-primary-700: #636670;
@@ -74,7 +74,7 @@
 @color-tips-pill: #5D6B78;
 @color-input-border: #667080;
 @color-hint: #565B5E;
-@color-error: #DC2A2A;
+@color-error: #e31937;
 @color-warning: @color-primary-500;
 
 /* Error message button colors */
@@ -91,13 +91,14 @@
 
 /* Button colors */
 @color-primary-button: @color-primary-500;
-@color-primary-button-hover: #5c6cff;
-@color-primary-button-active: #232aad;
+@color-primary-button-hover: #e31937;
+@color-primary-button-active: #e31f3d;
 @color-primary-button-disabled: #e8ecf0;
 
 @color-secondary-button: @color-transparent;
-@color-secondary-button-hover: rgba(92, 108, 255, 0.15);
-@color-secondary-button-active: rgba(35, 42, 173, 0.3);
+@color-secondary-button-hover: rgb(227, 31, 61); 
+@color-secondary-button-active: rgb(227, 31, 61);
+
 @color-secondary-button-text: @color-primary-500;
 @color-button-border: @color-primary-500;
 
@@ -111,8 +112,8 @@
 
 /* Selectors border styles */
 @selectors-border: 1px solid #8B9094;
-@selectors-box-shadow-hover: 0px 0px 0px 2px #5c6cff;
-@selectors-box-shadow-active: 0px 0px 0px 2px #232aad;
+@selectors-box-shadow-hover: 0px 0px 0px 2px #e31937
+@selectors-box-shadow-active: 0px 0px 0px 2px #e31f3d;
 
 /* Camera button colors */
 @color-camera-button: @color-white;

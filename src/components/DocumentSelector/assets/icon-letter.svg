@@ -7,8 +7,8 @@
     <mask id="b" fill="#FFF">
       <use xlink:href="#a"/>
     </mask>
-    <rect width="30" height="43" x="9" y="12" fill="#FFF" stroke="#2C3E4F" stroke-width="2" mask="url(#b)" rx="3"/>
-    <g fill="#2C3E4F" mask="url(#b)">
+    <rect width="30" height="43" x="9" y="12" fill="#FFF" stroke="#e31937" stroke-width="2" mask="url(#b)" rx="3"/>
+    <g fill="#e31937" mask="url(#b)">
       <g transform="translate(11.8 14.857)">
         <rect width="15" height="2" x=".2" y="16.143" rx="1"/>
         <rect width="19" height="2" x=".2" y="12.143" rx="1"/>
