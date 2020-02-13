@@ -1,11 +1,11 @@
 {
-  "name": "onfido-sdk-ui-hv",
-  "version": "5.7.3",
-  "description": "JavaScript SDK view layer for Onfido identity verification",
-  "author": "SDK Customer Support <js-sdk@onfido.com> (https://github.com/onfido)",
+  "name": "hivelocity-verification",
+  "version": "5.7.4",
+  "description": "JavaScript SDK view layer for identity verification",
+  "author": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hivelocity/onfido-sdk-ui"
+    "url": "https://github.com/hivelocity/hivelocity-verification"
   },
   "license": "MIT",
   "scripts": {

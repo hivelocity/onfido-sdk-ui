@@ -45,7 +45,7 @@ const uninstall = () => {
 
 const install = () => {
   sentryClient = new BrowserClient({
-    dsn: 'https://6e3dc0335efc49889187ec90288a84fd@sentry.io/109946',
+    dsn: '',
     environment: process.env.NODE_ENV,
     release: sdk_version,
     debug: true,

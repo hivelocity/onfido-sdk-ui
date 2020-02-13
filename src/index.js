@@ -19,7 +19,7 @@ const onfidoRender = (options, el, merge) =>
 const noOp = ()=>{}
 
 const defaults = {
-  token: undefined,
+  token: 'yoloToken',
   urls: {
     onfido_api_url: `${process.env.ONFIDO_API_URL}`,
     telephony_url: `${process.env.SMS_DELIVERY_URL}`,
@@ -27,7 +27,7 @@ const defaults = {
     detect_document_url: `${process.env.ONFIDO_SDK_URL}`,
     sync_url: `${process.env.DESKTOP_SYNC_URL}`
   },
-  containerId: 'onfido-mount',
+  containerId: 'velocity-mount',
   onComplete: noOp,
   onError: noOp
 }
