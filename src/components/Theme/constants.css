@@ -112,7 +112,7 @@
 
 /* Selectors border styles */
 @selectors-border: 1px solid #8B9094;
-@selectors-box-shadow-hover: 0px 0px 0px 2px #e31937
+@selectors-box-shadow-hover: 0px 0px 0px 2px #e31937;
 @selectors-box-shadow-active: 0px 0px 0px 2px #e31f3d;
 
 /* Camera button colors */

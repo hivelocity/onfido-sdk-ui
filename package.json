@@ -1,6 +1,6 @@
 {
   "name": "velocity-verification",
-  "version": "5.7.6",
+  "version": "5.7.7",
   "description": "JavaScript SDK view layer for identity verification",
   "author": "",
   "repository": {
@@ -19,6 +19,7 @@
     "prebuild": "npm run clean && npm run mkdirs && npm run check && npm run test",
     "mkdirs": "mkdir -p dist && mkdir -p lib",
     "clean": "rimraf lib dist",
+    "prepublish": "npm run clean && npm run check && npm run build",
     "check": "npm run -s lint && npm run flow",
     "lint": "eslint './src/**/*.js' './test/**/*.js'",
     "flow": "flow check",
@@ -99,7 +100,7 @@
     "jest": "^24.1.0",
     "jest-cli": "^24.1.0",
     "less": "^3.9.0",
-    "less-loader": "^4.0.4",
+    "less-loader": "^3.0.0",
     "mini-css-extract-plugin": "^0.5.0",
     "mocha": "^6.0.2",
     "mochawesome": "^4.1.0",
