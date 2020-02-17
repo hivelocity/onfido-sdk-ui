@@ -16,7 +16,7 @@ import nodeExternals from 'webpack-node-externals'
 
 
 // NODE_ENV can be one of: development | staging | test | production
-const NODE_ENV = process.env.NODE_ENV || 'production'
+const NODE_ENV = 'production'
 // For production, test, and staging we should build production ready code
 // i.e. fully minified so that testing staging is as realistic as possible
 const PRODUCTION_BUILD = NODE_ENV !== 'development'
@@ -46,7 +46,7 @@ const baseStyleLoaders = (modules, withSourceMap) => [
         getLocalIdent: (context, localIdentName, localName) => {
           const basePath = path.relative(`${__dirname}/src/components`, context.resourcePath)
           const baseDirFormatted = path.dirname(basePath).replace('/','-')
-          return `onfido-sdk-ui-${baseDirFormatted}-${localName}`
+          return `velocity-verification-${baseDirFormatted}-${localName}`
         }
       } : modules
     }
@@ -236,7 +236,7 @@ const configDist = {
   },
 
   output: {
-    library: 'Onfido',
+    library: 'Velocity',
     libraryTarget: 'umd',
     path: `${__dirname}/dist`,
     publicPath: CONFIG.PUBLIC_PATH,
@@ -264,7 +264,7 @@ const configDist = {
           sourceMap: true,
           terserOptions: {
             output: {
-              preamble: `/* Onfido SDK ${packageJson.version} */`,
+              preamble: `/* Velocity SDK ${packageJson.version} */`,
               comments: "/^!/"
             }
           }
