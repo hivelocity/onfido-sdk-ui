@@ -4,12 +4,12 @@ import { testFocusManagement, elementCanReceiveFocus } from '../utils/accessibil
 import { Key } from 'selenium-webdriver'
 
 class Welcome extends BasePage {
-  get text() { return this.$('.onfido-sdk-ui-Welcome-text')}
-  get footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
-  async primaryBtn() { return this.waitAndFind('.onfido-sdk-ui-Button-button')}
+  get text() { return this.$('.velocity-sdk-ui-Welcome-text')}
+  get footer() { return this.$('.velocity-sdk-ui-Theme-footer')}
+  async primaryBtn() { return this.waitAndFind('.velocity-sdk-ui-Button-button')}
   get openModalButton() { return this.$('#button')}
-  get closeModalButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
-  get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
+  get closeModalButton() { return this.$('.velocity-sdk-ui-Modal-closeButton')}
+  get backArrow() { return this.$('.velocity-sdk-ui-NavigationBar-iconBack')}
 
   async verifyTitle(copy) {
     const welcomeStrings = copy.welcome

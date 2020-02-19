@@ -2,22 +2,22 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
 class CrossDeviceLink extends BasePage {
-  get switchToSmsOptionBtn() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-smsLinkOption') }
-  get switchToCopyLinkOptionBtn() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-copyLinkOption') }
-  get switchToQrCodeOptionBtn() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-qrCodeLinkOption') }
-  get qrCode() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-qrCodeContainer svg') }
-  get qrCodeHelpToggleBtn() { return this.$('.onfido-sdk-ui-QRCode-qrCodeHelpButton') }
-  get qrCodeHelpList() { return this.$('.onfido-sdk-ui-QRCode-qrCodeHelpList') }
+  get switchToSmsOptionBtn() { return this.$('.velocity-sdk-ui-crossDevice-CrossDeviceLink-smsLinkOption') }
+  get switchToCopyLinkOptionBtn() { return this.$('.velocity-sdk-ui-crossDevice-CrossDeviceLink-copyLinkOption') }
+  get switchToQrCodeOptionBtn() { return this.$('.velocity-sdk-ui-crossDevice-CrossDeviceLink-qrCodeLinkOption') }
+  get qrCode() { return this.$('.velocity-sdk-ui-crossDevice-CrossDeviceLink-qrCodeContainer svg') }
+  get qrCodeHelpToggleBtn() { return this.$('.velocity-sdk-ui-QRCode-qrCodeHelpButton') }
+  get qrCodeHelpList() { return this.$('.velocity-sdk-ui-QRCode-qrCodeHelpList') }
   get qrCodeHelpHowToStep1() { return this.$('[data-onfido-qa="qrCodeHowToStep1"]') }
   get qrCodeHelpHowToStep2() { return this.$('[data-onfido-qa="qrCodeHowToStep2"]') }
-  get numberInputLabel() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-smsSection > .onfido-sdk-ui-crossDevice-CrossDeviceLink-label')}
-  get numberInput() { return this.$('.onfido-sdk-ui-PhoneNumberInput-mobileInput')}
-  get sendLinkBtn() { return this.$('.onfido-sdk-ui-Button-button-text')}
-  get copyLinkInsteadLabel() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-copyLinkSection > .onfido-sdk-ui-crossDevice-CrossDeviceLink-label')}
-  get copyToClipboardBtn() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-copyToClipboard')}
-  get copyLinkTextContainer() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText')}
-  get divider() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-divider')}
-  get checkNumberCorrectError() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-numberError')}
+  get numberInputLabel() { return this.$('.velocity-sdk-ui-crossDevice-CrossDeviceLink-smsSection > .velocity-sdk-ui-crossDevice-CrossDeviceLink-label')}
+  get numberInput() { return this.$('.velocity-sdk-ui-PhoneNumberInput-mobileInput')}
+  get sendLinkBtn() { return this.$('.velocity-sdk-ui-Button-button-text')}
+  get copyLinkInsteadLabel() { return this.$('.velocity-sdk-ui-crossDevice-CrossDeviceLink-copyLinkSection > .velocity-sdk-ui-crossDevice-CrossDeviceLink-label')}
+  get copyToClipboardBtn() { return this.$('.velocity-sdk-ui-crossDevice-CrossDeviceLink-copyToClipboard')}
+  get copyLinkTextContainer() { return this.$('.velocity-sdk-ui-crossDevice-CrossDeviceLink-linkText')}
+  get divider() { return this.$('.velocity-sdk-ui-crossDevice-CrossDeviceLink-divider')}
+  get checkNumberCorrectError() { return this.$('.velocity-sdk-ui-crossDevice-CrossDeviceLink-numberError')}
   async countrySelect() { return this.waitAndFind('.react-phone-number-input__country-select') }
 
   async verifyTitle(copy) {

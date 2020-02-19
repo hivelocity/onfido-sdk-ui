@@ -8,9 +8,9 @@ class BasePage {
     this.clickWhenClickable = clickWhenClickable
   }
 
-  async title() { return this.waitAndFind('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
-  get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
+  async title() { return this.waitAndFind('.velocity-sdk-ui-PageTitle-titleSpan')}
+  get subtitle() { return this.$('.velocity-sdk-ui-PageTitle-subTitle')}
+  get backArrow() { return this.$('.velocity-sdk-ui-NavigationBar-iconBack')}
 
   copy(lang) { return locale(lang) }
 

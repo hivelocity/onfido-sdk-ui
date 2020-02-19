@@ -3,10 +3,10 @@ import { verifyElementCopy } from '../utils/mochaw'
 import { asyncForEach } from '../utils/async'
 
 class CrossDeviceMobileConnected extends BasePage {
-  get icon() { return this.$('.onfido-sdk-ui-Theme-icon')}
-  async tipsHeader() { return this.waitAndFind('.onfido-sdk-ui-Theme-header')}
-  get tips() { return this.$('.onfido-sdk-ui-Theme-helpList li')}
-  get cancel() { return this.$('.onfido-sdk-ui-crossDevice-MobileConnected-cancel')}
+  get icon() { return this.$('.velocity-sdk-ui-Theme-icon')}
+  async tipsHeader() { return this.waitAndFind('.velocity-sdk-ui-Theme-header')}
+  get tips() { return this.$('.velocity-sdk-ui-Theme-helpList li')}
+  get cancel() { return this.$('.velocity-sdk-ui-crossDevice-MobileConnected-cancel')}
 
   async verifyUIElements(copy) {
     const crossDeviceMobileConnectedStrings = copy.cross_device

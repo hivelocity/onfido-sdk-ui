@@ -23,7 +23,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Accessibility: Changed Liveness background colour from 66% to 80%
 
 ## [5.6.0] - 2019-12-09
-**Note:** This version might be a breaking change if you are providing customised language translations. Please see [MIGRATION](https://github.com/onfido/onfido-sdk-ui/blob/master/MIGRATION.md).
+**Note:** This version might be a breaking change if you are providing customised language translations. Please see [MIGRATION](https://github.com/onfido/velocity-sdk-ui/blob/master/MIGRATION.md).
 
 ### Added
 - Internal: Added UI test to check Submit Verification button is not clickable multiple times if Complete step is excluded
@@ -83,7 +83,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Fetch URLs from JWT when present, otherwise use defaults
 
 ### Changed
-- Public: Unbundled dependencies for npm. This also fixes the current issue with imports (tested on Next.js, Create-react-app and Storybook) and solves [#615](https://github.com/onfido/onfido-sdk-ui/issues/615), [#668](https://github.com/onfido/onfido-sdk-ui/issues/668), [#733](https://github.com/onfido/onfido-sdk-ui/issues/733)
+- Public: Unbundled dependencies for npm. This also fixes the current issue with imports (tested on Next.js, Create-react-app and Storybook) and solves [#615](https://github.com/onfido/velocity-sdk-ui/issues/615), [#668](https://github.com/onfido/velocity-sdk-ui/issues/668), [#733](https://github.com/onfido/velocity-sdk-ui/issues/733)
 - UI: Changed camera permission screen design
 - Internal: Disable source maps for NPM build. Source maps will still be enabled for `/dist` build
 - Internal: Upgraded Preact for compatibility with latest version of React DevTools
@@ -271,7 +271,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 - Public: Fixed `complete` step to allow string customization at initialization time.
-- Internal: Fixed the `tearDown` method to clear the onComplete callback functions. (issue [#306](https://github.com/onfido/onfido-sdk-ui/issues/306))
+- Internal: Fixed the `tearDown` method to clear the onComplete callback functions. (issue [#306](https://github.com/onfido/velocity-sdk-ui/issues/306))
 
 ### Deprecated
 - Internal: Removed references to `useWebcam` option from README.md and return console warning if the option is used.
@@ -377,7 +377,7 @@ Bumping version to 1.0.0 because SDK has already been implemented in production 
 
 ## [0.12.0-rc.1]
 
-Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
+Install with `npm install velocity-sdk-ui@0.12.0-rc.1`
 
 ### Changed
 - Internal: Change the signature expected from the websockets server.
@@ -480,7 +480,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 ### Fixed
 - Internal: sometimes when document was retaken multiple times the capture ended up squashed. This was fixed by upgrading to `react-webcam@0.0.14`.
-- Internal: fixed [Bug #36](https://github.com/onfido/onfido-sdk-ui/issues/36), it caused the face to be captured every second after a document retake.
+- Internal: fixed [Bug #36](https://github.com/onfido/velocity-sdk-ui/issues/36), it caused the face to be captured every second after a document retake.
 
 ## [0.6.1]
 
@@ -497,7 +497,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 ## [0.5.1]
 ### Fix
-- SDK Core dependency update, fixes issue https://github.com/onfido/onfido-sdk-ui/issues/25
+- SDK Core dependency update, fixes issue https://github.com/onfido/velocity-sdk-ui/issues/25
 **Note:** This update only changes the dist folder release, npm releases get the dependency update if they do `npm install`
 
 ## [0.5.0]
@@ -509,48 +509,48 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.7.0...development
-[5.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.6.0...5.7.0
-[5.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.5.0...5.6.0
-[5.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.4.0...5.5.0
-[5.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.3.0...5.4.0
-[5.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.3...5.3.0
-[5.2.3]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.2...5.2.3
-[5.2.2]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.1...5.2.2
-[5.2.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.1.0...5.2.1
-[5.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.0.0...5.1.0
-[5.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/4.0.0...5.0.0
-[4.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.1.0...4.0.0
-[3.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.0.1...3.1.0
-[3.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/3.0.0...3.0.1
-[3.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.8.0...3.0.0
-[2.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.7.0...2.8.0
-[2.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.6.0...2.7.0
-[2.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.5.0...2.6.0
-[2.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.4.1...2.5.0
-[2.4.1]: https://github.com/onfido/onfido-sdk-ui/compare/2.4.0...2.4.1
-[2.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.3.0...2.4.0
-[2.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.2.0...2.3.0
-[2.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.1.0...2.2.0
-[2.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.0.0...2.1.0
-[2.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/1.1.0...2.0.0
-[1.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/1.0.0...1.1.0
-[1.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.15.1...1.0.0
-[0.15.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.15.0...0.15.1
-[0.15.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.14.0...0.15.0
-[0.14.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.13.0...0.14.0
-[0.13.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.12.0-rc.1...0.13.0
-[0.12.0-rc.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.11.1...0.12.0-rc.1
-[0.11.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.11.0...0.11.1
-[0.11.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.10.0...0.11.0
-[0.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.9.0...0.10.0
-[0.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.4...0.9.0
-[0.8.4]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.3...0.8.4
-[0.8.3]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.2...0.8.3
-[0.8.2]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.1...0.8.2
-[0.8.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.0...0.8.1
-[0.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.7.0...0.8.0
-[0.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.6.1...0.7.0
-[0.6.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.5.1...0.6.1
-[0.5.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.5.0...0.5.1
-[0.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.4.0...0.5.0
+https://github.com/onfido/velocity-sdk-ui/compare/5.7.0...development
+[5.7.0]: https://github.com/onfido/velocity-sdk-ui/compare/5.6.0...5.7.0
+[5.6.0]: https://github.com/onfido/velocity-sdk-ui/compare/5.5.0...5.6.0
+[5.5.0]: https://github.com/onfido/velocity-sdk-ui/compare/5.4.0...5.5.0
+[5.4.0]: https://github.com/onfido/velocity-sdk-ui/compare/5.3.0...5.4.0
+[5.3.0]: https://github.com/onfido/velocity-sdk-ui/compare/5.2.3...5.3.0
+[5.2.3]: https://github.com/onfido/velocity-sdk-ui/compare/5.2.2...5.2.3
+[5.2.2]: https://github.com/onfido/velocity-sdk-ui/compare/5.2.1...5.2.2
+[5.2.1]: https://github.com/onfido/velocity-sdk-ui/compare/5.1.0...5.2.1
+[5.1.0]: https://github.com/onfido/velocity-sdk-ui/compare/5.0.0...5.1.0
+[5.0.0]: https://github.com/onfido/velocity-sdk-ui/compare/4.0.0...5.0.0
+[4.0.0]: https://github.com/onfido/velocity-sdk-ui/compare/3.1.0...4.0.0
+[3.1.0]: https://github.com/onfido/velocity-sdk-ui/compare/3.0.1...3.1.0
+[3.0.1]: https://github.com/onfido/velocity-sdk-ui/compare/3.0.0...3.0.1
+[3.0.0]: https://github.com/onfido/velocity-sdk-ui/compare/2.8.0...3.0.0
+[2.8.0]: https://github.com/onfido/velocity-sdk-ui/compare/2.7.0...2.8.0
+[2.7.0]: https://github.com/onfido/velocity-sdk-ui/compare/2.6.0...2.7.0
+[2.6.0]: https://github.com/onfido/velocity-sdk-ui/compare/2.5.0...2.6.0
+[2.5.0]: https://github.com/onfido/velocity-sdk-ui/compare/2.4.1...2.5.0
+[2.4.1]: https://github.com/onfido/velocity-sdk-ui/compare/2.4.0...2.4.1
+[2.4.0]: https://github.com/onfido/velocity-sdk-ui/compare/2.3.0...2.4.0
+[2.3.0]: https://github.com/onfido/velocity-sdk-ui/compare/2.2.0...2.3.0
+[2.2.0]: https://github.com/onfido/velocity-sdk-ui/compare/2.1.0...2.2.0
+[2.1.0]: https://github.com/onfido/velocity-sdk-ui/compare/2.0.0...2.1.0
+[2.0.0]: https://github.com/onfido/velocity-sdk-ui/compare/1.1.0...2.0.0
+[1.1.0]: https://github.com/onfido/velocity-sdk-ui/compare/1.0.0...1.1.0
+[1.0.0]: https://github.com/onfido/velocity-sdk-ui/compare/0.15.1...1.0.0
+[0.15.1]: https://github.com/onfido/velocity-sdk-ui/compare/0.15.0...0.15.1
+[0.15.0]: https://github.com/onfido/velocity-sdk-ui/compare/0.14.0...0.15.0
+[0.14.0]: https://github.com/onfido/velocity-sdk-ui/compare/0.13.0...0.14.0
+[0.13.0]: https://github.com/onfido/velocity-sdk-ui/compare/0.12.0-rc.1...0.13.0
+[0.12.0-rc.1]: https://github.com/onfido/velocity-sdk-ui/compare/0.11.1...0.12.0-rc.1
+[0.11.1]: https://github.com/onfido/velocity-sdk-ui/compare/0.11.0...0.11.1
+[0.11.0]: https://github.com/onfido/velocity-sdk-ui/compare/0.10.0...0.11.0
+[0.10.0]: https://github.com/onfido/velocity-sdk-ui/compare/0.9.0...0.10.0
+[0.9.0]: https://github.com/onfido/velocity-sdk-ui/compare/0.8.4...0.9.0
+[0.8.4]: https://github.com/onfido/velocity-sdk-ui/compare/0.8.3...0.8.4
+[0.8.3]: https://github.com/onfido/velocity-sdk-ui/compare/0.8.2...0.8.3
+[0.8.2]: https://github.com/onfido/velocity-sdk-ui/compare/0.8.1...0.8.2
+[0.8.1]: https://github.com/onfido/velocity-sdk-ui/compare/0.8.0...0.8.1
+[0.8.0]: https://github.com/onfido/velocity-sdk-ui/compare/0.7.0...0.8.0
+[0.7.0]: https://github.com/onfido/velocity-sdk-ui/compare/0.6.1...0.7.0
+[0.6.1]: https://github.com/onfido/velocity-sdk-ui/compare/0.5.1...0.6.1
+[0.5.1]: https://github.com/onfido/velocity-sdk-ui/compare/0.5.0...0.5.1
+[0.5.0]: https://github.com/onfido/velocity-sdk-ui/compare/0.4.0...0.5.0

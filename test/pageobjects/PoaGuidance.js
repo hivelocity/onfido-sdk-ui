@@ -2,19 +2,19 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
 class PoaGuidance extends BasePage {
-  get poaGuidanceSubtitle() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-subTitle')}
-  get makeSure() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-makeSure')}
-  get logoText() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-label:nth-child(7)')}
-  get fullNameText() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-label:nth-child(1)')}
-  get currentText() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-label:nth-child(2)')}
-  get addressText() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-label:nth-child(3)')}
-  get issueDateText() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-label:nth-child(4)')}
-  get summaryPeriodText() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-label:nth-child(6')}
-  get continueButton() { return this.$('.onfido-sdk-ui-Button-button-text')}
-  get backButton() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
-  get utilityBillIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-utility-bill')}
-  get councilTaxLetterIcon() { return this.$('li:nth-child(3) .onfido-sdk-ui-DocumentSelector-icon')}
-  get benefitsLetterIcon() { return this.$('li:nth-child(4) .onfido-sdk-ui-DocumentSelector-icon')}
+  get poaGuidanceSubtitle() { return this.$('.velocity-sdk-ui-ProofOfAddress-Guidance-subTitle')}
+  get makeSure() { return this.$('.velocity-sdk-ui-ProofOfAddress-Guidance-makeSure')}
+  get logoText() { return this.$('.velocity-sdk-ui-ProofOfAddress-Guidance-label:nth-child(7)')}
+  get fullNameText() { return this.$('.velocity-sdk-ui-ProofOfAddress-Guidance-label:nth-child(1)')}
+  get currentText() { return this.$('.velocity-sdk-ui-ProofOfAddress-Guidance-label:nth-child(2)')}
+  get addressText() { return this.$('.velocity-sdk-ui-ProofOfAddress-Guidance-label:nth-child(3)')}
+  get issueDateText() { return this.$('.velocity-sdk-ui-ProofOfAddress-Guidance-label:nth-child(4)')}
+  get summaryPeriodText() { return this.$('.velocity-sdk-ui-ProofOfAddress-Guidance-label:nth-child(6')}
+  get continueButton() { return this.$('.velocity-sdk-ui-Button-button-text')}
+  get backButton() { return this.$('.velocity-sdk-ui-NavigationBar-iconBack')}
+  get utilityBillIcon() { return this.$('.velocity-sdk-ui-DocumentSelector-icon-utility-bill')}
+  get councilTaxLetterIcon() { return this.$('li:nth-child(3) .velocity-sdk-ui-DocumentSelector-icon')}
+  get benefitsLetterIcon() { return this.$('li:nth-child(4) .velocity-sdk-ui-DocumentSelector-icon')}
 
   async verifyCopiesOnPoADocumentsGuidanceScreen(copy, docType) {
     const poaGudanceTitleStrings = copy['capture'][docType]['front']

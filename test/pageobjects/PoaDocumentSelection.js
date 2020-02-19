@@ -2,19 +2,19 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
 class PoaDocumentSelection extends BasePage {
-  get bankIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-bank-building-society-statement')}
-  get bankLabel() { return this.$('li:nth-child(1) .onfido-sdk-ui-DocumentSelector-label')}
-  get bankTag() { return this.$('li:nth-child(1) .onfido-sdk-ui-DocumentSelector-tag')}
-  get utilityBillIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-utility-bill')}
-  get utilityBillLabel() { return this.$('li:nth-child(2) .onfido-sdk-ui-DocumentSelector-label')}
-  get utilityBillHint() { return this.$('li:nth-child(2) .onfido-sdk-ui-DocumentSelector-hint')}
-  get utilityBillWarning() { return this.$('.onfido-sdk-ui-DocumentSelector-warning')}
-  get utilityBillTag() { return this.$('li:nth-child(2) .onfido-sdk-ui-DocumentSelector-tag')}
-  get councilTaxLetterIcon() { return this.$('li:nth-child(3) .onfido-sdk-ui-DocumentSelector-icon')}
-  get councilTaxLetterLabel() { return this.$('li:nth-child(3) .onfido-sdk-ui-DocumentSelector-label')}
-  get benefitsLetterIcon() { return this.$('li:nth-child(4) .onfido-sdk-ui-DocumentSelector-icon')}
-  get benefitsLetterLabel() { return this.$('li:nth-child(4) .onfido-sdk-ui-DocumentSelector-label')}
-  get benefitsLetterHint() { return this.$('li:nth-child(4) .onfido-sdk-ui-DocumentSelector-hint')}
+  get bankIcon() { return this.$('.velocity-sdk-ui-DocumentSelector-icon-bank-building-society-statement')}
+  get bankLabel() { return this.$('li:nth-child(1) .velocity-sdk-ui-DocumentSelector-label')}
+  get bankTag() { return this.$('li:nth-child(1) .velocity-sdk-ui-DocumentSelector-tag')}
+  get utilityBillIcon() { return this.$('.velocity-sdk-ui-DocumentSelector-icon-utility-bill')}
+  get utilityBillLabel() { return this.$('li:nth-child(2) .velocity-sdk-ui-DocumentSelector-label')}
+  get utilityBillHint() { return this.$('li:nth-child(2) .velocity-sdk-ui-DocumentSelector-hint')}
+  get utilityBillWarning() { return this.$('.velocity-sdk-ui-DocumentSelector-warning')}
+  get utilityBillTag() { return this.$('li:nth-child(2) .velocity-sdk-ui-DocumentSelector-tag')}
+  get councilTaxLetterIcon() { return this.$('li:nth-child(3) .velocity-sdk-ui-DocumentSelector-icon')}
+  get councilTaxLetterLabel() { return this.$('li:nth-child(3) .velocity-sdk-ui-DocumentSelector-label')}
+  get benefitsLetterIcon() { return this.$('li:nth-child(4) .velocity-sdk-ui-DocumentSelector-icon')}
+  get benefitsLetterLabel() { return this.$('li:nth-child(4) .velocity-sdk-ui-DocumentSelector-label')}
+  get benefitsLetterHint() { return this.$('li:nth-child(4) .velocity-sdk-ui-DocumentSelector-hint')}
 
   async verifyTitle(copy) {
     verifyElementCopy(this.title(), copy)

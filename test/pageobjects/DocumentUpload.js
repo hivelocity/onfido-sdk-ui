@@ -3,12 +3,12 @@ const path = require('path')
 import { verifyElementCopy } from '../utils/mochaw'
 
 class DocumentUpload extends BasePage {
-  get crossDeviceHeader() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-header')}
-  get switchToCrossDeviceButton() { return this.$('.onfido-sdk-ui-Uploader-crossDeviceButton')}
-  get uploaderIcon() { return this.$('.onfido-sdk-ui-Uploader-icon')}
+  get crossDeviceHeader() { return this.$('.velocity-sdk-ui-crossDevice-SwitchDevice-header')}
+  get switchToCrossDeviceButton() { return this.$('.velocity-sdk-ui-Uploader-crossDeviceButton')}
+  get uploaderIcon() { return this.$('.velocity-sdk-ui-Uploader-icon')}
   get uploaderBtn() { return this.$('[data-onfido-qa="uploaderButtonLink"]')}
 
-  async uploadInput() { return this.waitAndFind('.onfido-sdk-ui-CustomFileInput-input') }
+  async uploadInput() { return this.waitAndFind('.velocity-sdk-ui-CustomFileInput-input') }
   async getUploadInput() {
     const input = this.uploadInput()
     this.driver.executeScript((el) => {
@@ -18,7 +18,7 @@ class DocumentUpload extends BasePage {
   }
 
   upload(filename) {
-    const input = this.$('.onfido-sdk-ui-CustomFileInput-input')
+    const input = this.$('.velocity-sdk-ui-CustomFileInput-input')
     const pathToTestFiles = '../resources/'
     const sendKeysToElement = input.sendKeys(path.join(__dirname, pathToTestFiles + filename))
     return sendKeysToElement

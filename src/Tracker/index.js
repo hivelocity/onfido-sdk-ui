@@ -57,7 +57,7 @@ const install = () => {
     beforeBreadcrumb: (crumb) => {
       const isOnfidoXhr = crumb.category === 'xhr' && isOnfidoHostname(crumb.data.url)
 
-      const isOnfidoClick = crumb.category === 'ui.click' && crumb.message.includes('.onfido-sdk-ui')
+      const isOnfidoClick = crumb.category === 'ui.click' && crumb.message.includes('.velocity-sdk-ui')
 
       const shouldReturnCrumb = isOnfidoXhr || isOnfidoClick
 

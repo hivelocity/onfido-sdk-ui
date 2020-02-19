@@ -267,7 +267,7 @@ const publishTag = async () => {
     console.log('Done. Now make sure that the latest tag has not changed, only the next one:')
 
     const isVerboseCmd = true
-    await spawnAssumeOkay('npm', ['dist-tag', 'ls', 'onfido-sdk-ui'], isVerboseCmd)
+    await spawnAssumeOkay('npm', ['dist-tag', 'ls', 'velocity-sdk-ui'], isVerboseCmd)
     await proceedYesNo('Is it all good?')
   }
   else {
@@ -277,7 +277,7 @@ const publishTag = async () => {
     console.log(`Done. The latest tag should now be ${VERSION}`)
     console.log(`Now check that: `)
     console.log('- Travis TAG build was successful')
-    console.log(`- https://latest-onfido-sdk-ui-onfido.surge.sh/ is using ${VERSION}`)
+    console.log(`- https://latest-velocity-sdk-ui-onfido.surge.sh/ is using ${VERSION}`)
     await proceedYesNo('Is it all good?')
   }
 }
@@ -291,15 +291,15 @@ const publishToNpm = async () => {
 const upgradeDemoAppToTag = async () => {
   stepTitle('🕑 Upgrading demo app...')
   const versionToInstall = config.data.versionRC ? config.data.versionRC : VERSION
-  await spawnAssumeOkay(`cd ${config.data.SAMPLE_APP_PATH} && npm install onfido-sdk-ui@${versionToInstall}`, [])
+  await spawnAssumeOkay(`cd ${config.data.SAMPLE_APP_PATH} && npm install velocity-sdk-ui@${versionToInstall}`, [])
   console.log('✅ Success!')
 }
 
 const regressionTesting = async () => {
   stepTitle('👀 Regression testing')
   console.log('✅ Release candidate complete!')
-  console.log('🏃 Go ahead and test the SDK deployment on https://release-[PR-NUMBER]-pr-onfido-sdk-ui-onfido.surge.sh')
-  console.log('If running test cycle with crowd testing provider, share https://release-[PR-NUMBER]-pr-onfido-sdk-ui-onfido.surge.sh and MANUAL_REGRESSION.md file in relevant Slack channel setting up the scope and duration of the cycle.')
+  console.log('🏃 Go ahead and test the SDK deployment on https://release-[PR-NUMBER]-pr-velocity-sdk-ui-onfido.surge.sh')
+  console.log('If running test cycle with crowd testing provider, share https://release-[PR-NUMBER]-pr-velocity-sdk-ui-onfido.surge.sh and MANUAL_REGRESSION.md file in relevant Slack channel setting up the scope and duration of the cycle.')
 }
 
 const releaseComplete = () => {
