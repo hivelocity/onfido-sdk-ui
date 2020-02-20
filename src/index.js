@@ -21,10 +21,10 @@ const noOp = ()=>{}
 const defaults = {
   token: 'yoloToken',
   urls: {
-    onfido_api_url: `${process.env.ONFIDO_API_URL}`,
+    VELOCITY_API_URL: `${process.env.VELOCITY_API_URL}`,
     telephony_url: `${process.env.SMS_DELIVERY_URL}`,
     hosted_sdk_url: `${process.env.MOBILE_URL}`,
-    detect_document_url: `${process.env.ONFIDO_SDK_URL}`,
+    detect_document_url: `${process.env.VELOCITY_SDK_URL}`,
     sync_url: `${process.env.DESKTOP_SYNC_URL}`
   },
   containerId: 'velocity-mount',

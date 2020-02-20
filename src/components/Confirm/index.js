@@ -173,7 +173,7 @@ class Confirm extends Component {
   }
 
   handleSelfieUpload = ({ snapshot, ...selfie }, token) => {
-    const url = this.props.urls.onfido_api_url
+    const url = this.props.urls.VELOCITY_API_URL
     // if snapshot is present, it needs to be uploaded together with the user initiated selfie
     if (snapshot) {
       sendEvent('Starting multiframe selfie upload')
@@ -190,7 +190,7 @@ class Confirm extends Component {
 
   uploadCaptureToOnfido = () => {
     const { urls, capture, method, side, token, poaDocumentType, language } = this.props
-    const url = urls.onfido_api_url
+    const url = urls.VELOCITY_API_URL
     this.startTime = performance.now()
     sendEvent('Starting upload', { method })
     this.setState({ uploadInProgress: true })

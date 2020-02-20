@@ -96,7 +96,9 @@ const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
 const WOOPRA_DOMAIN = 'onfido-js-sdk.com'
 
 const PROD_CONFIG = {
-  'ONFIDO_API_URL': 'https://api.onfido.com',
+  'VELOCITY_API_URL': 'https://core-feat-velocity.stacklocity.net/api/v1',
+
+  
   'ONFIDO_SDK_URL': 'https://sdk.onfido.com',
   'ONFIDO_TERMS_URL': 'https://onfido.com/termsofuse',
   'ONFIDO_PRIVACY_URL': 'https://onfido.com/privacy',
@@ -118,7 +120,7 @@ const TEST_CONFIG = {
 }
 
 const STAGING_CONFIG = {
-  'ONFIDO_API_URL': 'https://api.eu-west-1.dev.onfido.xyz',
+  'VELOCITY_API_URL': 'https://api.eu-west-1.dev.onfido.xyz',
   'ONFIDO_SDK_URL': 'https://mobile-sdk.eu-west-1.dev.onfido.xyz',
   'ONFIDO_TERMS_URL': 'https://dev.onfido.com/termsofuse',
   'ONFIDO_PRIVACY_URL': 'https://dev.onfido.com/privacy',

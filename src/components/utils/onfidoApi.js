@@ -16,7 +16,7 @@ export const uploadDocument = (data, url, token, onSuccess, onError) => {
     ...other,
     sdk_validations: JSON.stringify(validations)
   }
-  const endpoint = `${url}/v2/documents`
+  const endpoint = `${url}/verification/:id`
   sendFile(endpoint, data, token, onSuccess, onError)
 }
 

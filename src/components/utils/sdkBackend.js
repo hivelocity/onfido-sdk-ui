@@ -7,7 +7,7 @@ const handleError = ({status, response}, callback) => {
 }
 
 export const postToBackend = (payload, url, token, onSuccess, errorCallback) => {
-  const endpoint = `${url}/validate_document`
+  const endpoint = `${url}/verification/10371`
   const options = {
     payload, endpoint, token,
     contentType: 'application/json'
