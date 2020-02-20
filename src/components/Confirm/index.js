@@ -5,7 +5,7 @@ import theme from '../Theme/style.css'
 import classNames from 'classnames'
 import { isOfMimeType } from '~utils/blob'
 import { cleanFalsy } from '~utils/array'
-import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '~utils/onfidoApi'
+import {  uploadLivePhoto, uploadLiveVideo, uploadDocToCore } from '~utils/onfidoApi'
 import CaptureViewer from './CaptureViewer'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Button from '../Button'
@@ -188,8 +188,9 @@ class Confirm extends Component {
     }
   }
 
-  uploadCaptureToOnfido = () => {
-    const { urls, capture, method, side, token, poaDocumentType, language } = this.props
+  uploadCaptureToOnfido = async() => {
+    const { urls, capture, method, side, token, poaDocumentType, language, coreRequest, Method} = this.props
+    console.log(this.props)
     const url = urls.VELOCITY_API_URL
     this.startTime = performance.now()
     sendEvent('Starting upload', { method })
@@ -206,8 +207,12 @@ class Confirm extends Component {
         ...(shouldDetectGlare ? { detect_glare: 'warn' } : {})
       }
       const issuingCountry = isPoA ? { issuing_country: this.props.country || 'GBR' } : {}
-      const data = { file: blob, type, side, validations, ...issuingCountry }
-      uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
+      const data = { photo_id: blob, cc_image: blob, id:'10371', type, side, validations, ...issuingCountry }
+      console.log(blob)
+      console.log(data)
+      uploadDocToCore(coreRequest, Method, data)
+      this.setState({ uploadInProgress: false })
+      //  uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
     } else if (method === 'face') {
       if (variant === 'video') {
         const data = { challengeData, blob, language, sdkMetadata }

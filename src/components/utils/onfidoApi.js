@@ -16,8 +16,16 @@ export const uploadDocument = (data, url, token, onSuccess, onError) => {
     ...other,
     sdk_validations: JSON.stringify(validations)
   }
-  const endpoint = `${url}/verification/:id`
+  const endpoint = `${url}/verification/6628`
   sendFile(endpoint, data, token, onSuccess, onError)
+}
+
+export const uploadDocToCore = async (coreRequest, Method, data) =>{
+  try{
+      await coreRequest.fetch(Method.PUT, '/verification/6628', data)
+  }catch(e){
+    console.log(e)
+  }
 }
 
 export const uploadLivePhoto = ({sdkMetadata={}, ...data}, url, token, onSuccess, onError) => {

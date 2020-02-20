@@ -19,7 +19,7 @@ const onfidoRender = (options, el, merge) =>
 const noOp = ()=>{}
 
 const defaults = {
-  token: 'yoloToken',
+  token: undefined,
   urls: {
     VELOCITY_API_URL: `${process.env.VELOCITY_API_URL}`,
     telephony_url: `${process.env.SMS_DELIVERY_URL}`,
