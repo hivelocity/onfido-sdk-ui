@@ -18,6 +18,7 @@ type Props = {
   country?: string,
   actions: Object,
   group: string,
+  selectedDocumentType: string,
   nextStep: () => void,
 } & LocalisedType
 
@@ -31,6 +32,13 @@ const always: any => boolean = () => true
 // See https://documentation.onfido.com/#document-types
 class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
+  componentDidMount() {
+    const { actions, nextStep, selectedDocumentType } = this.props
+    if(selectedDocumentType){
+      actions.setIdDocumentType(selectedDocumentType)
+      nextStep()
+    }
+  }
   getOptions = () => {
     const { documentTypes, defaultOptions, country = 'GBR' } = this.props
     const defaultDocOptions = defaultOptions().filter(

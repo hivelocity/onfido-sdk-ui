@@ -11,8 +11,10 @@ const CaptureViewer = ({
   imageAltTag,
   videoAriaLabel
 }) => {
-  if (isOfMimeType(['pdf'], blob))
+  if (isOfMimeType(['pdf'], blob)){
     return <PdfViewer blob={blob} />
+  }
+    
   else if (variant === 'video')
     return <CaptureVideoViewer ariaLabel={videoAriaLabel} blob={blob} />
 

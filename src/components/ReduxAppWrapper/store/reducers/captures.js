@@ -13,14 +13,12 @@ export function captures (state = initialState, action = {}) {
   const key = payload.captureId
     ? getKeyByCaptureId(state, payload.captureId)
     : stateKey([payload.method, payload.side])
-
   switch (type) {
     case CAPTURE_CREATE:
       return {
         ...state,
         [key]: payload,
       }
-
     case CAPTURE_DELETE:
       return omit(state, [key])
 

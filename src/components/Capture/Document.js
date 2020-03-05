@@ -24,19 +24,19 @@ class Document extends Component {
   }
 
   handleCapture = payload => {
-    const { isPoA, documentType, poaDocumentType, actions, side, nextStep } = this.props
+    const { isPoA, documentType, actions, side, nextStep } = this.props
+    if(!payload) return null
     actions.createCapture({
-      ...payload,
+      blob:payload,
       method: 'document',
-      documentType: isPoA ? poaDocumentType : documentType,
+      documentType: isPoA ? 'cc_image' : documentType,
       side,
-      id: payload.id || randomId(),
+      id: randomId(),
     })
-
     nextStep()
   }
 
-  handleUpload = blob => this.handleCapture({ blob })
+  handleUpload = blob => this.handleCapture(blob)
 
   handleError = () => this.props.actions.deleteCapture()
 
@@ -56,14 +56,15 @@ class Document extends Component {
       useWebcam,
       hasCamera,
       documentType,
-      poaDocumentType,
+      poaDocumentType='cc_image',
       isPoA,
       side,
       translate,
       subTitle,
       uploadFallback
     } = this.props
-    const copyNamespace = `capture.${isPoA ? poaDocumentType : documentType}.${side}`
+    console.log(poaDocumentType)
+    const copyNamespace = `capture.${isPoA ? 'cc_image' : documentType}.${side}`
     const title = translate(`${copyNamespace}.title`)
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
     const renderTitle = <PageTitle {...{title, subTitle}} smaller />

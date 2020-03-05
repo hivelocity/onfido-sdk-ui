@@ -10,3 +10,7 @@
   background-image: url('assets/complete.svg');
   margin-bottom: 24*@unit;
 }
+
+.button{
+  margin-top: 80*@unit;
+}

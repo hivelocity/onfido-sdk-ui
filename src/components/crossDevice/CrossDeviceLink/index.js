@@ -3,7 +3,6 @@ import classNames from 'classnames'
 
 import theme from '../../Theme/style.css'
 import style from './style.css'
-import { performHttpReq } from '~utils/http'
 import Spinner from '../../Spinner'
 import Button from '../../Button'
 import CopyLink from './CopyLink'
@@ -136,7 +135,7 @@ class CrossDeviceLinkUI extends Component {
     this.clearSendLinkClickTimeout()
     this.setState({ sending: false })
     this.props.triggerOnError(error)
-    status === 429 ? this.setError('SMS_OVERUSE') : this.setError('SMS_FAILED')
+    this.setError('SMS_FAILED')
   }
 
   handleSendSmsLinkClick = () => {
@@ -148,7 +147,7 @@ class CrossDeviceLinkUI extends Component {
     }
   }
 
-  sendSms = () => {
+  sendSms = async () => {
     this.setState({ sending: true })
     // add a quick note that this will send a production SMS, so non-production
     // environment users will need to amend any URLs that they receive.
@@ -167,24 +166,32 @@ class CrossDeviceLinkUI extends Component {
       )
     }
 
-    const { language, sms, token, urls } = this.props
-    const url = urls.telephony_url
-    const options = {
-      payload: JSON.stringify({ to: sms.number, id: this.linkId, language }),
-      endpoint: `${url}/v1/cross_device_sms`,
-      contentType: 'application/json',
-      token: `Bearer ${token}`
+    const { sms, coreRequest, Method, documentType, verification, urls: { hosted_sdk_url } } = this.props
+    console.log(sms)
+
+    const data = {
+      to_phone_number: sms.number,
+      body:  `${hosted_sdk_url}/upload/${documentType}/${verification.verification_submission_id}`
     }
-    performHttpReq(options, this.handleResponse, this.handleSMSError)
+    console.log(data)
+    try{
+      await coreRequest.fetch(Method.POST, '/verification/send-sms/', data)
+      this.handleResponse({status: 'OK'})
+    }catch(e){
+      console.log(e)
+      this.handleSMSError(String(e))
+    }
+
+    // performHttpReq(options, this.handleResponse, this.handleSMSError)
   }
 
   getMobileUrl = () => {
-    const { hosted_sdk_url } = this.props.urls
+    const { urls: { hosted_sdk_url }, documentType, verification } = this.props
     // This lets us test the cross device flow locally and on Surge.
     // We use the same location to test the same bundle as the desktop flow.
     return process.env.MOBILE_URL === "/" ?
       `${window.location.origin}?link_id=${this.linkId}` :
-      `${hosted_sdk_url}/${this.linkId}`
+      `${hosted_sdk_url}/upload/${documentType}/${verification.verification_submission_id}`
   }
 
   clearSendLinkClickTimeout() {

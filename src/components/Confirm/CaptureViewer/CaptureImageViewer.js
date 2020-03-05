@@ -8,6 +8,7 @@ const CaptureImageViewer = ({ src, id, isDocument, isFullScreen, isPreviewCroppe
   <span className={classNames(isPreviewCropped ? style.croppedImageWrapper : style.imageWrapper, {
     [style.fullscreenImageWrapper]: isFullScreen,
   })}>
+    {console.log('run captureImageViewer')}
     {
       isDocument &&
         <EnlargedPreview

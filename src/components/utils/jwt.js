@@ -1,7 +1,9 @@
 import { currentSeconds } from './index'
 
 export const parseJwt = (token) => {
+  console.log(token)
   const base64Url = token.split('.')[1]
+  console.log(base64Url)
   const base64 = base64Url.replace('-', '+').replace('_', '/')
   return JSON.parse(atob(base64))
 }

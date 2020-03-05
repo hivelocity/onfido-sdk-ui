@@ -12,7 +12,7 @@ const sdk_version = process.env.SDK_VERSION
 let sentryClient = null
 let sentryHub= null
 
-const woopra = new WoopraTracker("onfidojssdkwoopra")
+const woopra = new WoopraTracker("velocityjssdkwoopra")
 
 const setUp = () => {
   woopra.init()

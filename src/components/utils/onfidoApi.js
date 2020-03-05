@@ -20,11 +20,16 @@ export const uploadDocument = (data, url, token, onSuccess, onError) => {
   sendFile(endpoint, data, token, onSuccess, onError)
 }
 
-export const uploadDocToCore = async (coreRequest, Method, data) =>{
+export const uploadDocToCore = async (coreRequest, Method, data, documentName, id, mobileUpload, onApiError, onApiSuccess) =>{
   try{
-      await coreRequest.fetch(Method.PUT, '/verification/6628', data)
+      if(!mobileUpload){
+        await coreRequest.fetch(Method.PUT, `/verification/${id}`, data)
+      }else{
+        await coreRequest.fetch(Method.POST, `/verification/upload/${id}`, data)
+      }
+      onApiSuccess()
   }catch(e){
-    console.log(e)
+      onApiError()
   }
 }
 

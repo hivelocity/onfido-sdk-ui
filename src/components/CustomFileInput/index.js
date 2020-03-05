@@ -28,17 +28,10 @@ export default class CustomFileInput extends Component<Props> {
         }
         this.props.onClick();
     };
-    toBase64 = (file: any) => new Promise<any>((resolve, reject) => {
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = () => resolve(reader.result);
-            reader.onerror = (error) => reject(error);
-        });
 
     handleChange = async (event: SyntheticEvent<HTMLInputElement>) => {
         if (this.input) {
-            const data = await this.toBase64(this.input.files[0])
-            this.props.onChange(data);
+            this.props.onChange(this.input.files[0]);
         }
         event.currentTarget.value = ''; // Allow re-uplading the same file
     };

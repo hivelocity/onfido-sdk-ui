@@ -20,7 +20,7 @@ const Router = (props) => {
   return <RouterComponent {...props} allowCrossDeviceFlow={!props.options.mobileFlow && isDesktop}/>
 }
 
-// Wrap components with theme that include navigation and footer
+// Wrap components with theme that include navigations and footer
 const WrappedSpinner = themeWrap(Spinner)
 const WrappedError = themeWrap(GenericError)
 
@@ -269,12 +269,16 @@ class HistoryRouter extends Component {
 
   nextStep = () => {
     const { step: currentStep } = this.state
+    console.log(this.state)
     const componentsList = this.getComponentsList()
     const newStepIndex = currentStep + 1
+    console.log(newStepIndex)
     if (componentsList.length === newStepIndex) {
+      console.log('run triggerOnComplete')
       this.triggerOnComplete()
     }
     else {
+      console.log('run setStepIndex')
       this.setStepIndex(newStepIndex)
     }
   }
@@ -357,9 +361,7 @@ class HistoryRouter extends Component {
 
   getComponentsList = () => this.buildComponentsList(this.state, this.props)
 
-  buildComponentsList =
-    ({flow},
-    {documentType, poaDocumentType, steps, deviceHasCameraSupport, options: {mobileFlow}}) =>
+  buildComponentsList = ({flow},{documentType, poaDocumentType, steps, deviceHasCameraSupport, options: {mobileFlow}}) =>
       componentsList({flow, documentType, poaDocumentType, steps, mobileFlow, deviceHasCameraSupport});
 
   render = (props) =>

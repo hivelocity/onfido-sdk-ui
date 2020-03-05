@@ -39,7 +39,7 @@ const formatOptions = ({steps, smsNumberCountryCode, ...otherOptions}) => ({
   ...otherOptions,
   urls: jwtUrls(otherOptions),
   smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
-  steps: (steps || ['welcome','document','face','complete']).map(formatStep)
+  steps: (steps || ['welcome','document','complete']).map(formatStep)
 })
 
 const experimentalFeatureWarnings = ({steps}) => {
@@ -61,15 +61,15 @@ const isSMSCountryCodeValid = (smsNumberCountryCode) => {
   const countries = getCountryCodes(labels)
   const isCodeValid = countries.includes(smsNumberCountryCode)
   if (!isCodeValid) {
-    console.warn("`smsNumberCountryCode` must be a valid two-characters ISO Country Code. 'GB' will be used instead.")
+    console.warn("`smsNumberCountryCode` must be a valid two-characters ISO Country Code. 'US' will be used instead.")
   }
   return isCodeValid
 }
 
 const validateSmsCountryCode = (smsNumberCountryCode) => {
-  if (!smsNumberCountryCode) return 'GB'
+  if (!smsNumberCountryCode) return 'US'
   const upperCaseCode = upperCase(smsNumberCountryCode)
-  return isSMSCountryCodeValid(upperCaseCode) ? upperCaseCode : 'GB'
+  return isSMSCountryCodeValid(upperCaseCode) ? upperCaseCode : 'US'
 }
 
 const jwtUrls = ({token}) => {

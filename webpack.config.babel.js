@@ -104,7 +104,7 @@ const PROD_CONFIG = {
   'ONFIDO_PRIVACY_URL': 'https://onfido.com/privacy',
   'JWT_FACTORY': 'https://token-factory.onfido.com/sdk_token',
   'DESKTOP_SYNC_URL': 'https://sync.onfido.com',
-  'MOBILE_URL': 'https://id.onfido.com',
+  'MOBILE_URL': 'https://store.hivelocity.net',
   'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
   'PUBLIC_PATH': `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
   'RESTRICTED_XDEVICE_FEATURE_ENABLED': true,

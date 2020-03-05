@@ -1,7 +1,7 @@
 @import (less) "../../Theme/constants.css";
 
 .content {
-  text-align: left;
+  text-align: center;
   margin: 0 80*@unit auto;
 
   @media (--small-viewport) {
@@ -11,9 +11,9 @@
 }
 
 .requirements {
-  font-weight: 600;
-  color: @color-text-dark;
-  margin-bottom: 16*@unit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .requirement {

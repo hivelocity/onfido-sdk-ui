@@ -88,10 +88,13 @@ class Uploader extends Component {
     }, checkFn => checkFn(file))
   }
 
-  handleFileSelected = (file) => {
+  handleFileSelected = async (file) => {
     const error = this.findError(file)
-    return error ? this.setError(error) : this.props.onUpload(file)
-  }
+    if (error){
+      return this.setError(error)
+    }
+    return this.props.onUpload(file)
+  };
 
   render() {
     const {

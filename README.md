@@ -1,3 +1,8 @@
+# Velocity 
+Need to change poa variable names from proof_address to credit_card.
+If you happened to get any error with "split of undefined " is more likely do with image blob, look there. 
+uploadDocToCore is used to upload all the documents.
+
 # Onfido SDK UI Layer
 
 [![Build Status](https://travis-ci.org/onfido/velocity-sdk-ui.svg?branch=master)](https://travis-ci.org/onfido/velocity-sdk-ui)

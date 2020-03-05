@@ -47,6 +47,7 @@
   .btn-primary {
     @media (--small-viewport) {
       width: 135*@unit;
+      margin-bottom: 32*@unit;
     }
   }
 }

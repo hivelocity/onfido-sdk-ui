@@ -3,16 +3,16 @@ import { connect } from 'react-redux'
 import style from './style.css'
 import theme from '../Theme/style.css'
 import classNames from 'classnames'
-import { isOfMimeType } from '~utils/blob'
+// import { isOfMimeType } from '~utils/blob'
 import { cleanFalsy } from '~utils/array'
 import {  uploadLivePhoto, uploadLiveVideo, uploadDocToCore } from '~utils/onfidoApi'
 import CaptureViewer from './CaptureViewer'
-import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
+// import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Button from '../Button'
 import Error from '../Error'
 import Spinner from '../Spinner'
 import PageTitle from '../PageTitle'
-import { trackException, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
+import {  trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 import { localised } from '../../locales'
 
 const RetakeAction = localised(({retakeAction, translate}) =>
@@ -58,7 +58,6 @@ const Previews = localised(
   const message = method === 'face' ?
     translate(`confirm.face.${capture.variant}.message`) :
     translate(`confirm.${documentType}.message`)
-
   return (
     <div className={classNames(style.previewsContainer, theme.fullHeightContainer, {
       [style.previewsContainerIsFullScreen]: isFullScreen,
@@ -108,11 +107,11 @@ class Confirm extends Component {
     super(props)
     this.state = {
       uploadInProgress: false,
-      error: {},
+      error: {type:''},
       capture: null
     }
   }
-
+  
   onGlareWarning = () => {
     this.setWarning('GLARE_DETECTED')
   }
@@ -136,21 +135,9 @@ class Confirm extends Component {
     return first
   }
 
-  onApiError = ({ status, response }) => {
-    let errorKey
-    if (this.props.mobileFlow && status === 401) {
-      this.props.triggerOnError({ status, response })
-      return this.props.crossDeviceClientError()
-    } else if (status === 422) {
-      errorKey = this.onfidoErrorReduce(response.error)
-    } else {
-      this.props.triggerOnError({ status, response })
-      trackException(`${status} - ${response}`)
-      errorKey = 'SERVER_ERROR'
-    }
-
+  onApiError = () => {
+    this.setError('SERVER_ERROR')
     this.setState({ uploadInProgress: false })
-    this.setError(errorKey)
   }
 
   onApiSuccess = apiResponse => {
@@ -161,15 +148,9 @@ class Confirm extends Component {
     sendEvent('Completed upload', { duration, method })
 
     actions.setCaptureMetadata({ capture, apiResponse })
-
-    const warnings = apiResponse.sdk_warnings
-    if (warnings && !warnings.detect_glare.valid) {
-      this.setState({ uploadInProgress: false })
-      this.onGlareWarning()
-    } else {
       // wait a tick to ensure the action completes before progressing
       setTimeout(nextStep, 0)
-    }
+  
   }
 
   handleSelfieUpload = ({ snapshot, ...selfie }, token) => {
@@ -187,31 +168,37 @@ class Confirm extends Component {
       uploadLivePhoto({ file: filePayload, sdkMetadata }, url, token, this.onApiSuccess, this.onApiError)
     }
   }
+  toBase64 = (file) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  })
 
-  uploadCaptureToOnfido = async() => {
-    const { urls, capture, method, side, token, poaDocumentType, language, coreRequest, Method} = this.props
-    console.log(this.props)
+  uploadCaptureToOnfido = async () => {
+    const { urls, capture, method, side, token, language, coreRequest, Method, verification, verification_submission_id} = this.props
     const url = urls.VELOCITY_API_URL
     this.startTime = performance.now()
     sendEvent('Starting upload', { method })
     this.setState({ uploadInProgress: true })
-    const { blob, documentType: type, variant, challengeData, sdkMetadata } = capture
+    const { blob, documentType, variant, challengeData, sdkMetadata } = capture
     this.setState({ capture })
-
     if (method === 'document') {
-      const isPoA = poaDocumentTypes.includes(poaDocumentType)
-      const shouldDetectGlare = !isOfMimeType(['pdf'], blob) && !isPoA
-      const shouldDetectDocument = !isPoA
-      const validations = {
-        ...(shouldDetectDocument ? { detect_document: 'error' } : {}),
-        ...(shouldDetectGlare ? { detect_glare: 'warn' } : {})
-      }
-      const issuingCountry = isPoA ? { issuing_country: this.props.country || 'GBR' } : {}
-      const data = { photo_id: blob, cc_image: blob, id:'10371', type, side, validations, ...issuingCountry }
-      console.log(blob)
-      console.log(data)
-      uploadDocToCore(coreRequest, Method, data)
-      this.setState({ uploadInProgress: false })
+      // const isPoA = poaDocumentTypes.includes(poaDocumentType)
+      // const shouldDetectGlare = !isOfMimeType(['pdf'], blob) && !isPoA
+      // const shouldDetectDocument = !isPoA
+      // const validations = {
+      //   ...(shouldDetectDocument ? { detect_document: 'error' } : {}),
+      //   ...(shouldDetectGlare ? { detect_glare: 'warn' } : {})
+      // }
+      // const issuingCountry = isPoA ? { issuing_country: this.props.country || 'GBR' } : {}
+      const file = blob.type ? blob : blob.blob
+      const base64 = await this.toBase64(file)
+      const documentName = side ? `${documentType}_${side}` : documentType
+      const data = { [documentName]: base64 }
+      const mobileUpload = verification_submission_id ? true : false
+      const id = mobileUpload ? verification_submission_id : verification.id
+      await uploadDocToCore(coreRequest, Method, data, documentName, id, mobileUpload, this.onApiError, this.onApiSuccess)
       //  uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
     } else if (method === 'face') {
       if (variant === 'video') {

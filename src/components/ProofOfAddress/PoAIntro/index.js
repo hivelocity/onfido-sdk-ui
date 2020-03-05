@@ -5,25 +5,17 @@ import PageTitle from '../../PageTitle'
 import Button from '../../Button'
 import {trackComponent} from '../../../Tracker'
 import {localised} from '../../../locales'
-
-const PoAIntro = ({country, translate, parseTranslatedTags, nextStep}) => (
+import CreditCard from './assets/CreditCard'
+const PoAIntro = ({country, translate, nextStep}) => (
   <div className={theme.fullHeightContainer}>
     <PageTitle title={translate('proof_of_address.intro.title', {
       country: !country || country === 'GBR' ? 'UK' : '',
     })} />
     <div className={style.content}>
       <p className={style.requirements}>{translate('proof_of_address.intro.requirements')}</p>
-      {
-        ['shows_address', 'matches_signup', 'is_recent'].map(key =>
-          <div key={key} className={style.requirement}>
-            <span>
-            {parseTranslatedTags(`proof_of_address.intro.${key}`, ({ text }) => (
-              <span className={style.bolder}>{text}</span>
-            ))}
-            </span>
+          <div className={style.requirements}>
+              <CreditCard />
           </div>
-        )
-      }
     </div>
     <div className={theme.thickWrapper}>
       <Button

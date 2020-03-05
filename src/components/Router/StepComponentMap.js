@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import Welcome from '../Welcome'
-import { SelectPoADocument, SelectIdentityDocument } from '../Select'
+import { SelectIdentityDocument } from '../Select'
 import { FrontDocumentCapture, BackDocumentCapture, SelfieCapture, VideoCapture } from '../Capture'
 import SelfieIntro from '../Photo/SelfieIntro'
 import { DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm } from '../Confirm'
@@ -10,7 +10,7 @@ import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import VideoIntro from '../Video/Intro'
-import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
+import { PoACapture, PoAIntro } from '../ProofOfAddress'
 
 export const componentsList = ({flow, documentType, steps, mobileFlow, deviceHasCameraSupport}) => {
   const captureSteps = mobileFlow ? clientCaptureSteps(steps) : steps
@@ -47,7 +47,7 @@ const captureStepsComponents = (documentType, mobileFlow, steps, deviceHasCamera
     welcome: () => [Welcome],
     face: () => getFaceSteps(steps, deviceHasCameraSupport, mobileFlow),
     document: () => createIdentityDocumentComponents(documentType, hasPreselectedDocument(steps)),
-    poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm],
+    poa: () => [PoAIntro, PoACapture, DocumentFrontConfirm],
     complete: () => complete
   }
 }
@@ -108,7 +108,9 @@ const createComponentList = (components, steps) => {
 }
 
 const createComponent = (components, step, stepIndex) => {
+  console.log(step)
   const {type} = step
+  console.log(type)
   if (!(type in components)) { console.error('No such step: ' + type) }
   return components[type]().map(wrapComponent(step, stepIndex))
 }

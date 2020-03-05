@@ -10,7 +10,7 @@
       <g transform="translate(173 184)">
         <g transform="translate(0 160)">
           <g transform="translate(0 2)">
-            <circle cx="8" cy="8" r="8" fill="#3640F5"/>
+            <circle cx="8" cy="8" r="8" fill="#e31f3d"/>
             <mask fill="white">
               <use xlink:href="#a"/>
             </mask>

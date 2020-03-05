@@ -13,7 +13,7 @@
             <mask fill="white">
               <use xlink:href="#a"/>
             </mask>
-            <use fill="#3640F5" fill-rule="evenodd" xlink:href="#a"/>
+            <use fill="#e31f3d" fill-rule="evenodd" xlink:href="#a"/>
           </g>
         </g>
       </g>
