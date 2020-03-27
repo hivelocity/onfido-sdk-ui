@@ -30,12 +30,12 @@
 }
 
 .bolder {
-  font-weight: 600;
+  font-weight: 300;
 }
 
 .makeSure {
   color: @color-text-dark;
-  font-weight: 600;
+  font-weight: 300;
   margin-bottom: 8*@unit;
 
   @media (--small-viewport) {

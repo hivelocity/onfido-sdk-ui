@@ -12,7 +12,7 @@
 
   display: inline-block;
   border: none;
-  border-radius: 4*@unit;
+  border-radius: 0*@unit;
   padding: 0;
 
   &:disabled {
@@ -39,7 +39,7 @@
   width: 216*@unit;
   max-width: 100%;
 
-  border-radius: 4*@unit;
+  border-radius: 0*@unit;
   border: none;
 
   @media (--small-viewport) {
@@ -84,9 +84,9 @@
 
 .button-small {
   background-color: @color-small-button;
-  border-radius: 4*@unit;
+  border-radius: 0*@unit;
   color: @color-white;
-  font-weight: 600;
+  font-weight: 300;
   height: auto;
   line-height: 1.4;
   padding: 11.2*@unit 19.6*@unit;

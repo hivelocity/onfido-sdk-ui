@@ -12,7 +12,7 @@ const sdk_version = process.env.SDK_VERSION
 let sentryClient = null
 let sentryHub= null
 
-const woopra = new WoopraTracker("velocityjssdkwoopra")
+const woopra = new WoopraTracker("placeholderKey")
 
 const setUp = () => {
   woopra.init()
@@ -20,7 +20,7 @@ const setUp = () => {
   // configure tracker
   woopra.config({
    domain: process.env.WOOPRA_DOMAIN,
-   cookie_name: 'onfido-js-sdk-woopra',
+   cookie_name: 'placeholderCookie',
    cookie_domain: location.hostname,
    referer: location.href
   });

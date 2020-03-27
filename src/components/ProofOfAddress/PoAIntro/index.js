@@ -17,7 +17,7 @@ const PoAIntro = ({country, translate, nextStep}) => (
               <CreditCard />
           </div>
     </div>
-    <div className={theme.thickWrapper}>
+    <div className={style.thickWrapper}>
       <Button
         variants={["primary", "centered"]}
         onClick={nextStep}

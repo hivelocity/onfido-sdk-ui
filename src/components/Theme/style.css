@@ -107,7 +107,7 @@
   background-color: @color-tips-pill;
   color: @color-white;
   font-size: @font-size-small;
-  font-weight: 600;
+  font-weight: 300;
   position: absolute;
   margin-top: -10*@unit-small;
   margin-left: 10*@unit-small;

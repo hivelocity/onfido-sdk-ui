@@ -10,7 +10,7 @@
       </g>
       <g transform="translate(2.6667 16)">
         <rect stroke="#8B9094" stroke-width=".5" fill="#F3F3F4" x=".25" y=".25" width="18.1667" height="4.8333" rx=".6667"/>
-        <path d="M2 2.6667a.6667.6667 0 1 0 0-1.3334.6667.6667 0 0 0 0 1.3334z" fill="#353FF4"/>
+        <path d="M2 2.6667a.6667.6667 0 1 0 0-1.3334.6667.6667 0 0 0 0 1.3334z" fill="#e31937"/>
         <rect fill="#8B9094" x="3.6667" y="1.6667" width="10.3333" height="1" rx=".5"/>
         <rect fill="#8B9094" x="3.6667" y="3.3333" width="13" height="1" rx=".5"/>
       </g>

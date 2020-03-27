@@ -2,7 +2,9 @@
 Need to change poa variable names from proof_address to credit_card.
 If you happened to get any error with "split of undefined " is more likely do with image blob, look there. 
 uploadDocToCore is used to upload all the documents.
+crossDevice folder is where we check if the document has been uploaded and move to the next step.
 
+all calls to core are made with coreRequest.
 # Onfido SDK UI Layer
 
 [![Build Status](https://travis-ci.org/onfido/velocity-sdk-ui.svg?branch=master)](https://travis-ci.org/onfido/velocity-sdk-ui)

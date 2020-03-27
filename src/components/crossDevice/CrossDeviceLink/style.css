@@ -30,7 +30,7 @@
 }
 
 .label {
-  font-weight: 600;
+  font-weight: 300;
   text-align: left;
   color: @color-text-dark;
   float: left;
@@ -50,8 +50,8 @@
 .inputContainer {
   height: 100%;
   border: 1px solid @color-input-border;
-  border-top-left-radius: 4*@unit;
-  border-bottom-left-radius: 4*@unit;
+  border-top-left-radius: 0*@unit;
+  border-bottom-left-radius: 0*@unit;
   border-right: none;
   background-color: @color-white;
   float: left;
@@ -128,7 +128,7 @@
   line-height: 1.5;
   color: @color-text-dark;
   white-space: nowrap;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Proxima Nova',Helvetica,sans-serif;
 }
 
 .copyToClipboard {
@@ -174,7 +174,7 @@
   height: 48*@unit;
   .width-parent-relative(112, @parent-width);
   float: right;
-  border-radius: 0 4*@unit 4*@unit 0;
+  border-radius: 0 0*@unit 0*@unit 0;
   padding: 0;
 }
 

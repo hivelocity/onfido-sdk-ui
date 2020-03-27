@@ -38,7 +38,7 @@
 
 .title-text {
   display: inline-block;
-  font-weight: 600;
+  font-weight: 300;
   line-height: 1.5;
   padding-left: 24*@unit;
 }

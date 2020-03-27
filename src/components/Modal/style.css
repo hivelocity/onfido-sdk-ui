@@ -52,10 +52,10 @@
   height: 600*@unit;
   text-align: center;
   max-height: calc(~'100% + 4*@{unit}');
-  border-radius: 8*@unit;
+  border-radius: 0*@unit;
   border: 1px solid @color-border;
 
-  font-family: "Open Sans", sans-serif !important;
+  font-family: 'Proxima Nova',Helvetica,sans-serif !important;
   background-color: @color-background;
 
   color: @color-body-text;
@@ -97,7 +97,7 @@
   border-radius: 16*@unit;
   border: none;
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Proxima Nova',Helvetica,sans-serif;
   height: 32*@unit;
   position: absolute;
   right: 15*@unit;

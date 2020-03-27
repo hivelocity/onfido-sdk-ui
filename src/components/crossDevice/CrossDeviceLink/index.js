@@ -108,6 +108,30 @@ class CrossDeviceLinkUI extends Component {
       validNumber: true
     }
   }
+  componentDidMount() {
+    this.checkUploadTimeoutId = setInterval(this.handleDocumentCheck, 3000)
+  }
+
+  componentWillUnmount() {
+    this.clearCheckInterval()
+    this.clearSendLinkClickTimeout()
+  }
+
+  handleDocumentCheck = async () => {
+    const { coreRequest, Method, verification:{verification_submission_id}} = this.props
+    const res = await coreRequest.fetch(Method.GET, `/verification/document-check/${verification_submission_id}`)
+    if(res.submitted === true){
+      this.clearCheckInterval()
+      this.props.actions.setClientSuccess(true)
+      this.props.nextStep()
+    }
+  }
+
+  clearCheckInterval = () => {
+    if (this.checkUploadTimeoutId) {
+      clearInterval(this.checkUploadTimeoutId)
+    }
+  }
 
   linkId = `${process.env.BASE_32_VERSION}${this.props.roomId}`
 
@@ -167,18 +191,15 @@ class CrossDeviceLinkUI extends Component {
     }
 
     const { sms, coreRequest, Method, documentType, verification, urls: { hosted_sdk_url } } = this.props
-    console.log(sms)
 
     const data = {
       to_phone_number: sms.number,
-      body:  `${hosted_sdk_url}/upload/${documentType}/${verification.verification_submission_id}`
+      url:  `${hosted_sdk_url}/upload/${documentType}/${verification.verification_submission_id}`
     }
-    console.log(data)
     try{
       await coreRequest.fetch(Method.POST, '/verification/send-sms/', data)
       this.handleResponse({status: 'OK'})
     }catch(e){
-      console.log(e)
       this.handleSMSError(String(e))
     }
 
@@ -201,6 +222,7 @@ class CrossDeviceLinkUI extends Component {
   }
 
   renderSmsLinkSection = () => {
+    this.clearCheckInterval()
     const { translate } = this.props
     const { sending, validNumber } = this.state
     const buttonCopyKey = sending ?
@@ -248,7 +270,12 @@ class CrossDeviceLinkUI extends Component {
     )
   }
 
-  renderCopyLinkSection = () => <CopyLink mobileUrl={this.getMobileUrl()} />
+  renderCopyLinkSection = () => {
+    this.clearCheckInterval()
+    return (
+      <CopyLink mobileUrl={this.getMobileUrl()} {...this.props} />
+    )
+}
 
   renderQrCodeSection = () => (
     <div className={style.qrCodeSection}>
@@ -262,10 +289,6 @@ class CrossDeviceLinkUI extends Component {
   handleViewOptionSelect = (newViewId) => {
     sendEvent(`${newViewId.replace('_',' ')} selected`)
     this.setState({ currentViewId: newViewId })
-  }
-
-  componentWillUnmount() {
-    this.clearSendLinkClickTimeout()
   }
 
   render() {

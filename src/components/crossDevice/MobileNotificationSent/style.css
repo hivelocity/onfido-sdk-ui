@@ -14,7 +14,7 @@
 .boldMessage {
   margin-top: 0;
   margin-bottom: 32*@unit;
-  font-weight: 600;
+  font-weight: 300;
 }
 
 .help {

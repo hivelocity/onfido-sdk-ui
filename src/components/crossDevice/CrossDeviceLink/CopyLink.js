@@ -14,9 +14,32 @@ class CopyLink extends Component {
     }
   }
 
+  componentDidMount() {
+    this.copyLinkIntervalId = setInterval(this.handleDocumentCheck, 3000)
+  }
+
+  componentWillUnmount(){
+    this.clearCheckInterval()
+  }
+
+  handleDocumentCheck = async () => {
+    const { coreRequest, Method, verification:{verification_submission_id}} = this.props
+    const res = await coreRequest.fetch(Method.GET, `/verification/document-check/${verification_submission_id}`)
+    if(res.submitted === true){
+      this.clearCheckInterval()
+      this.props.actions.setClientSuccess(true)
+      this.props.nextStep()
+    }
+  }
+
+  clearCheckInterval = () => {
+    if (this.copyLinkIntervalId) {
+      clearInterval(this.copyLinkIntervalId)
+    }
+  }
+
   onCopySuccess = () => {
     this.setState({ copySuccess: true })
-    this.clearLinkCopiedTimeout()
     this.linkCopiedTimeoutId = setTimeout(() => {
       this.setState({ copySuccess: false })
 

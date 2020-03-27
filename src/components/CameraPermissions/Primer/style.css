@@ -63,7 +63,7 @@
   right: 0;
   text-align: center;
   width: 50%;
-  font-weight: 600;
+  font-weight: 300;
 
   @media (--small-viewport) {
     top: 65%;

@@ -72,7 +72,6 @@ export const blobToLossyBase64 = (blob, callback, errorCallback, options) => {
 
 export const mimeType = blob => {
   const type = blob.type || blob.blob.type
-  console.log(type)
   return type.split('/')[1]
 }
 

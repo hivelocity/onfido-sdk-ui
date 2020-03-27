@@ -13,14 +13,13 @@
 .option {
   width: 100%;
   background: @color-white;
-  border-radius: 4*@unit;
+  border-radius: 0*@unit;
   border: @selectors-border;
   color: @color-text-dark;
   cursor: pointer;
   display: flex;
   font: inherit;
-  line-height: 1.43;
-  margin-bottom: 8*@unit;
+  margin-bottom: 0.8em;
   padding: 16*@unit;
   position: relative;
 
@@ -39,10 +38,14 @@
 
   &.optionHoverDesktop:hover {
     box-shadow: @selectors-box-shadow-hover;
+    color: @color-text-dark;
+    border: none;
   }
 
   &:active {
     box-shadow: @selectors-box-shadow-active;
+    color: @color-text-dark;
+    border: none;
   }
 }
 
@@ -73,7 +76,7 @@
 }
 
 .warning {
-  font-weight: 600;
+  font-weight: 300;
   font-size: @font-size-small;
   margin-bottom: 6*@unit-small;
 }

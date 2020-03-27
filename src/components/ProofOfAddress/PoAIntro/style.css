@@ -9,7 +9,13 @@
     margin-right: 24*@unit;
   }
 }
-
+.thickWrapper {
+  margin: 0 @large-text-margin;
+  padding-bottom: 2.5em;
+  @media (--small-viewport) {
+    margin: 0 @small-text-margin;
+  }
+}
 .requirements {
   display: flex;
   justify-content: center;
@@ -35,5 +41,5 @@
 }
 
 .bolder {
-  font-weight: 600;
+  font-weight: 300;
 }

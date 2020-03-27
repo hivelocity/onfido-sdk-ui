@@ -18,7 +18,7 @@
 }
 
 .instructionsTitle {
-  font-weight: 600;
+  font-weight: 300;
   margin: 0 0 8*@unit-small;
 }
 
@@ -26,7 +26,7 @@
   background: @color-secondary-button-text;
   border-radius: 14*@unit-small;
   color: @color-white;
-  font-weight: 600;
+  font-weight: 300;
   left: 20*@unit-small;
   line-height: 24*@unit-small;
   padding: 0 15*@unit-small;

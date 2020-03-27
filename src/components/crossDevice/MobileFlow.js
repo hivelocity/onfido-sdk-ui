@@ -9,6 +9,7 @@ class MobileFlow extends Component {
     this.props.socket.on('disconnect ping', this.onDisconnectPing)
     this.props.socket.on('get config', this.sendConfig)
     this.props.socket.on('client success', this.onClientSuccess)
+    this.sendLinkClickTimeoutId = setInterval(this.handleDocumentCheck, 3000)
   }
 
   componentWillUnmount() {
@@ -18,15 +19,29 @@ class MobileFlow extends Component {
     const {socket, roomId, actions} = this.props
     socket.emit('disconnecting', {roomId})
     actions.mobileConnected(false)
+    this.clearCheckInterval()
   }
 
+  handleDocumentCheck = async () => {
+    const { coreRequest, Method, verification:{verification_submission_id}} = this.props
+    const res = await coreRequest.fetch(Method.GET, `/verification/document-check/${verification_submission_id}`)
+    if(res.submitted === true){
+      this.clearCheckInterval()
+      this.props.actions.setClientSuccess(true)
+    }
+  }
+
+  clearCheckInterval = () => {
+    if (this.sendLinkClickTimeoutId) {
+      clearInterval(this.sendLinkClickTimeoutId)
+    }
+  }
   sendConfig = (data) => {
     const { roomId, mobileConfig, socket, actions } = this.props
     if (roomId && roomId !== data.roomId) {
       socket.emit('leave', {roomId})
     }
     actions.setRoomId(data.roomId)
-    actions.mobileConnected(true)
     this.sendMessage('config', data.roomId, mobileConfig)
   }
 

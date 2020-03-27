@@ -25,7 +25,7 @@ class Complete extends Component {
                     onClick={() => window.location.assign('https://my.hivelocity.net')}
                     variants={[ 'centered', 'primary' ]}
                 >
-                    Go To My Velocity
+                    Go To myVelocity
                 </Button>}
             </div>
         );
