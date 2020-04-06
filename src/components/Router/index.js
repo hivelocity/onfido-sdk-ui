@@ -269,16 +269,12 @@ class HistoryRouter extends Component {
 
   nextStep = () => {
     const { step: currentStep } = this.state
-    console.log(this.state)
     const componentsList = this.getComponentsList()
     const newStepIndex = currentStep + 1
-    console.log(newStepIndex)
     if (componentsList.length === newStepIndex) {
-      console.log('run triggerOnComplete')
       this.triggerOnComplete()
     }
     else {
-      console.log('run setStepIndex')
       this.setStepIndex(newStepIndex)
     }
   }

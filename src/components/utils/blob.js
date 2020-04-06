@@ -17,10 +17,7 @@ const blobToCanvas = (blob, callback, errorCallback, options) => {
   const { maxWidth = 960, maxHeight = 960, orientation = true } = options || {}
 
   return loadImage(blob, canvasOrEventError => {
-    console.log(canvasOrEventError)
-    console.log(blob, 'blob to canvas')
     if (canvasOrEventError.type === "error"){
-      console.log('type fails here')
       errorCallback(canvasOrEventError)
     }
     else {
@@ -30,11 +27,8 @@ const blobToCanvas = (blob, callback, errorCallback, options) => {
 }
 
 const decodeBase64 = (image) => {
-  console.log(image)
   const byteString  = atob(image.split(',')[1])
-  console.log(byteString)
   const mimeString = image.split(',')[0].split(':')[1].split(';')[0]
-  console.log(mimeString)
   let integerArray = new Uint8Array(byteString.length)
   for (let i = 0; i < byteString.length; i++) {
     integerArray[i] = byteString.charCodeAt(i)
@@ -76,8 +70,6 @@ export const mimeType = blob => {
 }
 
 export const isOfMimeType = (mimeTypeList, blob) => {
-    console.log(mimeTypeList)
-    console.log(blob)
    return  mimeTypeList.some(acceptableMimeType => acceptableMimeType === mimeType(blob));
 }
 
