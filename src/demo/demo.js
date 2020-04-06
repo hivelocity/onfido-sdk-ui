@@ -139,7 +139,6 @@ const onMessage = () => {
     )
   }
   else if (event.data.type === 'SDK_COMPLETE') {
-    console.log("everything is complete", event.data.data)
   }
 }
 
