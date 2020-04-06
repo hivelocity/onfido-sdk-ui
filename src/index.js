@@ -78,7 +78,7 @@ const jwtUrls = ({token}) => {
 }
 
 export const init = (opts) => {
-  console.log("onfido_sdk_version", process.env.SDK_VERSION)
+  console.log("velocity_sdk_version", process.env.SDK_VERSION)
   const options = formatOptions({ ...defaults, ...opts })
   experimentalFeatureWarnings(options)
 

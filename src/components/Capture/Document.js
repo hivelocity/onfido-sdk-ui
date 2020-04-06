@@ -63,7 +63,6 @@ class Document extends Component {
       subTitle,
       uploadFallback
     } = this.props
-    console.log(poaDocumentType)
     const copyNamespace = `capture.${isPoA ? 'cc_image' : documentType}.${side}`
     const title = translate(`${copyNamespace}.title`)
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }

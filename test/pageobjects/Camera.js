@@ -16,9 +16,7 @@ class Camera extends BasePage {
   }
 
   async isOverlayPresent() {
-    console.log('fails isOverlay present')
     const cameraClasses = this.faceOverlay.getAttribute("class").split(" ")
-    console.log('fails at isOverlay')
     return cameraClasses.includes('velocity-sdk-ui-Overlay-isWithoutHole')
   }
 

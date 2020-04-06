@@ -108,9 +108,7 @@ const createComponentList = (components, steps) => {
 }
 
 const createComponent = (components, step, stepIndex) => {
-  console.log(step)
   const {type} = step
-  console.log(type)
   if (!(type in components)) { console.error('No such step: ' + type) }
   return components[type]().map(wrapComponent(step, stepIndex))
 }

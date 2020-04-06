@@ -60,7 +60,6 @@ class Previewer extends Component {
     } else if (message.data.type === 'SDK_COMPLETE') {
       this.setState({ sdkFlowCompleted: true })
       if (this.globalOnCompleteFunc) this.globalOnCompleteFunc(message.data.data)
-      console.log('Complete with data!', message.data.data)
     }
   }
 
